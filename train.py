@@ -31,6 +31,13 @@ def parse_args():
     return parser.parse_args()
 
 
+input_args = parse_args()
+
+model = input_args.arch
+gpu = input_args.gpu
+epochs = input_args.epochs
+criterion =input_args.
+
 def train(model, criterion, optimizer, train_dataloader, epochs, gpu):
     #Define global variables we will be using during the training
     #epochs are times algorithm backpropagates
@@ -42,6 +49,10 @@ def train(model, criterion, optimizer, train_dataloader, epochs, gpu):
         training_loss = 0 #we wil track the training loss we do so we set this to zero
         for images, labels in train_dataloader: #loop into our data (images)
             steps += 1 #cumulate steps aka batches. Every time we go through one of these batches, we will increment batch steps here
+            if gpu = 'gpu':
+                device = 'cuda'
+            else:
+                device = 'cpu'
             images, labels = images.to(device), labels.to(device)# Move input and label tensors to the default device
             optimizer.zero_grad() #Here we zero our gradients in order not to have leftover values from previous loops
             log_ps = model.forward(images) #get our log probabilities from our model
