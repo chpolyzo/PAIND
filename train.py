@@ -30,7 +30,8 @@ def parse_args():
     parser.add_argument('--save_dir', dest="save_dir", action="store", default="checkpoint.pth")
     return parser.parse_args()
 
-
+#To convert the user provided input for gpu as an input to the train function, 
+#I need to define a variable first, then call the attribute of gpu I have created
 input_args = parse_args()
 
 model = input_args.arch
